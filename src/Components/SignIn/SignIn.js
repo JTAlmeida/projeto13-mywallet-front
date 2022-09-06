@@ -36,7 +36,7 @@ export default function SignIn() {
 
     const promise = signIn(form);
     promise.catch((res) => {
-      alert(res.responde.sata.message);
+      alert(res.response.data.message);
       setIsLoading(false);
       setForm({
         email: "",
@@ -63,32 +63,64 @@ export default function SignIn() {
       navigate("/history");
     });
   }
+
   return (
     <>
-      <Wrapper>
-        <img src={logo} alt="logo" />
+      {isLoading ? (
+        <Wrapper>
+          <img src={logo} alt="logo" />
 
-        <Form onSubmit={sendSignIn}>
-          <Input
-            placeholder="E-mail"
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleForm}
-            required
-          />
-          <Input
-            placeholder="Senha"
-            name="password"
-            type="password"
-            value={form.password}
-            onChange={handleForm}
-            required
-          />
-          <Button type="submit">Entrar</Button>
-        </Form>
-        <Link to="/sign-up">Primeira vez? Cadastre-se!</Link>
-      </Wrapper>
+          <Form onSubmit={sendSignIn}>
+            <Input
+              disabled
+              placeholder="E-mail"
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleForm}
+              required
+            />
+            <Input
+              disabled
+              placeholder="Senha"
+              name="password"
+              type="password"
+              value={form.password}
+              onChange={handleForm}
+              required
+            />
+            <Button disabled type="submit">
+              <ThreeDots color="rgba(255,255,255,1)" height={10} width={45} />
+            </Button>
+          </Form>
+          <Link to="/sign-up">Primeira vez? Cadastre-se!</Link>
+        </Wrapper>
+      ) : (
+        <Wrapper>
+          <img src={logo} alt="logo" />
+
+          <Form onSubmit={sendSignIn}>
+            <Input
+              placeholder="E-mail"
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleForm}
+              required
+            />
+            <Input
+              placeholder="Senha"
+              name="password"
+              type="password"
+              value={form.password}
+              onChange={handleForm}
+              required
+            />
+            <Button type="submit">Entrar</Button>
+          </Form>
+          <Link to="/sign-up">Primeira vez? Cadastre-se!</Link>
+        </Wrapper>
+      )}
     </>
   );
 }

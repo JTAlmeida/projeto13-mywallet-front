@@ -134,6 +134,9 @@ const Global = css`
   * {
     box-sizing: border-box;
   }
+  a{
+    text-decoration: none;
+  }
   html,
   body {
     width: 100%;
