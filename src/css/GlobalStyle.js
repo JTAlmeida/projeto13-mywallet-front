@@ -141,11 +141,11 @@ const Global = css`
   body {
     width: 100%;
     background-color: rgba(140, 17, 190, 1);
+    font-family: 'Raleway', sans-serif;
   }
 
   .root {
     width: 100%;
-    font-family: 'Raleway', sans-serif;
     word-wrap: break-word;
   }
   

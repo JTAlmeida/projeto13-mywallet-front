@@ -9,7 +9,6 @@ import Income from "./Income/Income";
 import Outcome from "./Outcome/Outcome";
 import UserContext from "../contexts/UserContext";
 
-
 export default function App() {
   const [user, setUser] = useState("");
 
@@ -24,9 +23,9 @@ export default function App() {
             <Route
               path="/history"
               element={
-                <PrivatePage>
-                  <History />
-                </PrivatePage>
+                //<PrivatePage>
+                <History />
+                //</PrivatePage>
               }
             ></Route>
             <Route
