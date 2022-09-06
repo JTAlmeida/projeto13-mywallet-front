@@ -34,6 +34,8 @@ export default function SignIn() {
   function sendSignIn(e) {
     e.preventDefault();
 
+    setIsLoading(true);
+    
     const promise = signIn(form);
     promise.catch((res) => {
       alert(res.response.data.message);
@@ -47,7 +49,7 @@ export default function SignIn() {
     promise.then((res) => {
       const timestamp = +new Date();
       setIsLoading(false);
-      setUser(res.date);
+      setUser(res.data);
       localStorage.setItem(
         "mywallet",
         JSON.stringify({

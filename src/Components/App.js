@@ -31,17 +31,17 @@ export default function App() {
             <Route
               path="/income"
               element={
-                <PrivatePage>
+                //<PrivatePage>
                   <Income />
-                </PrivatePage>
+                //</PrivatePage>
               }
             ></Route>
             <Route
               path="/outcome"
               element={
-                <PrivatePage>
+                //<PrivatePage>
                   <Outcome />
-                </PrivatePage>
+                //</PrivatePage>
               }
             ></Route>
           </Routes>

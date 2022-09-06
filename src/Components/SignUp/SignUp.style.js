@@ -15,7 +15,6 @@ export const Wrapper = styled.div`
     font-size: 15px;
     font-weight: 700;
     color: rgba(255, 255, 255, 1);
-    cursor: pointer;
   }
 `;
 

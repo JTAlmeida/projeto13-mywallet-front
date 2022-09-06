@@ -12,4 +12,14 @@ function signIn(body) {
   return axios.post(signInAPI, body);
 }
 
-export { signUp, signIn };
+function addIncome(body) {
+  const addIncomeAPI = `${BASE_URL}/income`;
+  return axios.post(addIncomeAPI, body);
+}
+
+function addOutcome(body) {
+  const addOutcomeAPI = `${BASE_URL}/outcome`;
+  return axios.post(addOutcomeAPI, body);
+}
+
+export { signUp, signIn, addIncome, addOutcome };
