@@ -5,7 +5,10 @@ import PrivatePage from "./PrivatePage";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./SignUp/SignUp";
 import History from "./History/History";
+import Income from "./Income/Income";
+import Outcome from "./Outcome/Outcome";
 import UserContext from "../contexts/UserContext";
+
 
 export default function App() {
   const [user, setUser] = useState("");
@@ -23,6 +26,22 @@ export default function App() {
               element={
                 <PrivatePage>
                   <History />
+                </PrivatePage>
+              }
+            ></Route>
+            <Route
+              path="/income"
+              element={
+                <PrivatePage>
+                  <Income />
+                </PrivatePage>
+              }
+            ></Route>
+            <Route
+              path="/outcome"
+              element={
+                <PrivatePage>
+                  <Outcome />
                 </PrivatePage>
               }
             ></Route>
