@@ -16,7 +16,16 @@ export default function History() {
     <>
       <Wrapper>
         <Header>
-          Olá, Fulano <img src={leaveIcon} alt="leave" />
+          Olá, Fulano
+          <Link to="/">
+            <img
+              src={leaveIcon}
+              alt="leave"
+              onClick={() => {
+                localStorage.clear("mywallet");
+              }}
+            />
+          </Link>
         </Header>
         <HistoryWrapper>
           <h1>Não há registros de entrada ou saída</h1>
