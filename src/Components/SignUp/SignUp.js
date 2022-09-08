@@ -21,7 +21,6 @@ export default function SignUp() {
 
   useEffect(() => {
     if (user) {
-      setUser(JSON.parse(localStorage.getItem("mywallet")));
       navigate("/history");
     }
   }, []);
@@ -41,18 +40,12 @@ export default function SignUp() {
     }
 
     setIsLoading(true);
-
+    console.log(form);
     const promise = signUp(form);
     promise
       .catch((res) => {
         alert(res.response.data.message);
         setIsLoading(false);
-        setForm({
-          name: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
       })
       .then(() => {
         setIsLoading(false);

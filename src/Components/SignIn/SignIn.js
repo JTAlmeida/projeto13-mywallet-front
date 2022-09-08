@@ -14,7 +14,6 @@ export default function SignIn() {
 
   useEffect(() => {
     if (user) {
-      setUser(JSON.parse(localStorage.getItem("mywallet")));
       navigate("/history");
     }
   }, []);
@@ -40,10 +39,6 @@ export default function SignIn() {
     promise.catch((res) => {
       alert(res.response.data.message);
       setIsLoading(false);
-      setForm({
-        email: "",
-        password: "",
-      });
     });
 
     promise.then((res) => {
@@ -53,7 +48,7 @@ export default function SignIn() {
       localStorage.setItem(
         "mywallet",
         JSON.stringify({
-          name: res.data.name,
+          email: res.data.user.email,
           token: res.data.token,
           timestamp,
         })

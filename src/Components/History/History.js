@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UserContext from "../../contexts/UserContext";
 import {
   Wrapper,
   Header,
@@ -12,20 +13,23 @@ import plus from "../../assets/plus.png";
 import minus from "../../assets/minus.png";
 
 export default function History() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
+
   return (
     <>
       <Wrapper>
         <Header>
           Olá, Fulano
-          <Link to="/">
-            <img
-              src={leaveIcon}
-              alt="leave"
-              onClick={() => {
-                localStorage.clear("mywallet");
-              }}
-            />
-          </Link>
+          <img
+            src={leaveIcon}
+            alt="leave"
+            onClick={() => {
+              localStorage.clear("mywallet");
+              setUser("");
+              navigate("/");
+            }}
+          />
         </Header>
         <HistoryWrapper>
           <h1>Não há registros de entrada ou saída</h1>

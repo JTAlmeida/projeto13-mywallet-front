@@ -21,8 +21,8 @@ export default function PrivatePage({ children }) {
             Você não pode acessar esta página.
             <p>Por favor, cadastre-se ou faça login.</p>
           </h1>
-          <button onClick={() => navigate("/")}>Cadastre-se</button>
-          <button onClick={() => navigate("/sign-up")}>Login</button>
+          <button onClick={() => navigate("/sign-up")}>Cadastre-se</button>
+          <button onClick={() => navigate("/")}>Login</button>
         </Wrapper>
       </>
     );

@@ -16,6 +16,10 @@ export const Header = styled.div`
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 22px;
+
+  img{
+    cursor:pointer;
+  }
 `;
 
 export const HistoryWrapper = styled.div`

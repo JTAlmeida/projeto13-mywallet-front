@@ -12,6 +12,13 @@ import UserContext from "../contexts/UserContext";
 export default function App() {
   const [user, setUser] = useState("");
 
+  
+  const auth = JSON.parse(localStorage.getItem("mywallet"));
+
+  if (auth && user === "") {
+    setUser(JSON.parse(localStorage.getItem("mywallet")));
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -23,25 +30,25 @@ export default function App() {
             <Route
               path="/history"
               element={
-                //<PrivatePage>
+                <PrivatePage>
                 <History />
-                //</PrivatePage>
+                </PrivatePage>
               }
             ></Route>
             <Route
               path="/income"
               element={
-                //<PrivatePage>
+                <PrivatePage>
                   <Income />
-                //</PrivatePage>
+                </PrivatePage>
               }
             ></Route>
             <Route
               path="/outcome"
               element={
-                //<PrivatePage>
+                <PrivatePage>
                   <Outcome />
-                //</PrivatePage>
+                </PrivatePage>
               }
             ></Route>
           </Routes>
