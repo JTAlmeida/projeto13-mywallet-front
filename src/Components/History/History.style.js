@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
   margin-top: 25px;
   padding: 0 25px;
 `;
@@ -23,7 +22,7 @@ export const Header = styled.div`
 `;
 
 export const HistoryWrapper = styled.div`
-  height: 75vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 1);
@@ -66,7 +65,7 @@ export const FooterWrapper = styled.div`
 `;
 
 export const FooterOptions = styled.div`
-  height: 14vh;
+  height: 15vh;
   width: 42vw;
   display: flex;
   flex-direction: column;
