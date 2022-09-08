@@ -12,14 +12,9 @@ function signIn(body) {
   return axios.post(signInAPI, body);
 }
 
-function addIncome(body) {
-  const addIncomeAPI = `${BASE_URL}income`;
+function transactions(body) {
+  const addIncomeAPI = `${BASE_URL}/add-value`;
   return axios.post(addIncomeAPI, body);
 }
 
-function addOutcome(body) {
-  const addOutcomeAPI = `${BASE_URL}outcome`;
-  return axios.post(addOutcomeAPI, body);
-}
-
-export { signUp, signIn, addIncome, addOutcome };
+export { signUp, signIn, transactions };

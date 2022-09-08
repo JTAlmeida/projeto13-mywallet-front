@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Wrapper, Input, Form, Button, Header } from "./Income.style";
-import { addIncome } from "../../mywalletService";
+import { transactions } from "../../mywalletService";
 import back from "../../assets/return.png";
 import dayjs from "dayjs";
 
@@ -12,6 +12,7 @@ export default function Income() {
   const [form, setForm] = useState({
     amount: "",
     description: "",
+    type: "income",
   });
 
   function fixValue(e) {
@@ -32,14 +33,10 @@ export default function Income() {
   function sendNewIncome(e) {
     e.preventDefault();
 
-    const promise = addIncome({ ...form, date });
+    const promise = transactions({ ...form, type:"income", date });
     promise.catch((res) => {
       alert(res.response.data.message);
       setIsLoading(false);
-      setForm({
-        amount: "",
-        description: "",
-      });
     });
 
     promise.then((res) => {
