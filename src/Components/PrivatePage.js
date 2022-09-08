@@ -34,7 +34,7 @@ export default function PrivatePage({ children }) {
 
   const timeNow = +new Date();
 
-  if (!auth || !auth.email || !auth.timestamp || !auth.token) {
+  if (!auth || !auth.email || !auth.timestamp || !auth.token || !auth.name) {
     return renderError();
   } else {
     const timeLogged = auth.timestamp;

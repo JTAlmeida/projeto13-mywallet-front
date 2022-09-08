@@ -17,8 +17,8 @@ export const Header = styled.div`
   font-weight: 700;
   margin-bottom: 22px;
 
-  img{
-    cursor:pointer;
+  img {
+    cursor: pointer;
   }
 `;
 
@@ -30,6 +30,7 @@ export const HistoryWrapper = styled.div`
   border: 1px solid #ffffff;
   border-radius: 5px;
   margin-bottom: 13px;
+  padding-top: 20px;
 
   h1 {
     width: 60%;
@@ -39,6 +40,22 @@ export const HistoryWrapper = styled.div`
     align-self: center;
     text-align: center;
     padding-top: calc(68vh / 2);
+  }
+
+  ul {
+    width: 100%;
+    height: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 `;
 
@@ -64,5 +81,49 @@ export const FooterOptions = styled.div`
 
   img {
     width: 24px;
+  }
+`;
+
+export const TransactionDiv = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 0 10px;
+
+  .transaction-description {
+    color: rgba(0, 0, 0, 1);
+    span {
+      color: #c6c6c6;
+      margin-right: 10px;
+    }
+  }
+  .transaction-value {
+    color: ${(props) => (props.type === "income" ? "rgba(3, 172, 0, 1)" : "rgba(199, 0, 0, 1)")};
+  }
+`;
+
+export const BalanceStyle = styled.div`
+  position: relative;
+  bottom: 10;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  padding: 0 10px;
+  padding-top: 5px;
+  
+  h2 {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
+  }
+  h3 {
+    font-weight: 400;
+    color: ${(props) => (props.balance >= 0 ? "rgba(3, 172, 0, 1)" : "rgba(199, 0, 0, 1)")};
   }
 `;

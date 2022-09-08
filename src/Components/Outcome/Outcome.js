@@ -34,7 +34,7 @@ export default function Income() {
 
     setIsLoading(true);
 
-    const promise = postTransactions({ ...form, type: "income" });
+    const promise = postTransactions({ ...form, type: "outcome" });
 
     promise.catch((res) => {
       alert(res.response.data.message);

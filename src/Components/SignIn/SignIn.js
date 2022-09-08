@@ -48,6 +48,7 @@ export default function SignIn() {
       localStorage.setItem(
         "mywallet",
         JSON.stringify({
+          name: res.data.user.name,
           email: res.data.user.email,
           token: res.data.token,
           timestamp,

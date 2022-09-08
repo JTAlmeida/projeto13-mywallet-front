@@ -16,10 +16,9 @@ export default function Income() {
   });
 
   function fixValue(e) {
-    e.target.value = parseFloat(e.target.value).toFixed(2);
     setForm({
       ...form,
-      [e.target.name]: parseFloat(e.target.value),
+      [e.target.name]: parseFloat(e.target.value).toFixed(2),
     });
   }
 

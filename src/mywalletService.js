@@ -24,7 +24,7 @@ function signIn(body) {
 function getTransactions() {
   const config = createHeaders();
   const transactionAPI = `${BASE_URL}transactions`;
-  return axios.post(transactionAPI, config);
+  return axios.get(transactionAPI, config);
 }
 
 function postTransactions(body) {
