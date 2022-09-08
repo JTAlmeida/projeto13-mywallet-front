@@ -14,7 +14,7 @@ import minus from "../../assets/minus.png";
 
 export default function History() {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   return (
     <>

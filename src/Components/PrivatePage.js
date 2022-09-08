@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { useContext} from "react";
+import UserContext from "../contexts/UserContext";
 import logo from "../assets/logo.png";
 import styled from "styled-components";
 
@@ -7,11 +9,13 @@ const MIN = SEC * 60;
 
 export default function PrivatePage({ children }) {
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const auth = JSON.parse(localStorage.getItem("mywallet"));
 
   function renderError() {
     localStorage.clear("mywallet");
+    setUser("");
 
     return (
       <>
@@ -30,7 +34,7 @@ export default function PrivatePage({ children }) {
 
   const timeNow = +new Date();
 
-  if (!auth) {
+  if (!auth || !auth.email || !auth.timestamp || !auth.token) {
     return renderError();
   } else {
     const timeLogged = auth.timestamp;
