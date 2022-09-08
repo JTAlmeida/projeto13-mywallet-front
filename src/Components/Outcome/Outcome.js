@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Wrapper, Input, Form, Button, Header } from "./Outcome.style";
-import { transactions } from "../../mywalletService";
+import { postTransactions } from "../../mywalletService";
 import back from "../../assets/return.png";
 import dayjs from "dayjs";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function Income() {
   const navigate = useNavigate();
@@ -31,13 +32,15 @@ export default function Income() {
   function sendNewIncome(e) {
     e.preventDefault();
 
-    const promise = transactions({form, type: "outcome", date});
+    setIsLoading(true);
+
+    const promise = postTransactions({ ...form, type: "income" });
+
     promise.catch((res) => {
       alert(res.response.data.message);
       setIsLoading(false);
     });
-
-    promise.then((res) => {
+    promise.then(() => {
       setIsLoading(false);
       setForm({
         amount: "",
@@ -75,7 +78,7 @@ export default function Income() {
               required
             />
             <Button disabled type="submit">
-              Salvar saída
+              <ThreeDots color="rgba(255,255,255,1)" height={10} width={45} />
             </Button>
           </Form>
         </Wrapper>
