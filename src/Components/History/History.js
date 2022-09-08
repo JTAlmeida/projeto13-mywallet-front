@@ -18,7 +18,6 @@ import minus from "../../assets/minus.png";
 export default function History() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
-  const [reload, setReload] = useState(false);
   const [hasTransaction, setHasTransaction] = useState(false);
   const [transactionHistory, setTransactionHistory] = useState([]);
 

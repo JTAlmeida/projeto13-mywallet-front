@@ -3,13 +3,11 @@ import { useNavigate, Link } from "react-router-dom";
 import { Wrapper, Input, Form, Button, Header } from "./Outcome.style";
 import { postTransactions } from "../../mywalletService";
 import back from "../../assets/return.png";
-import dayjs from "dayjs";
 import { ThreeDots } from "react-loader-spinner";
 
 export default function Income() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const date = dayjs().format("DD/MM");
   const [form, setForm] = useState({
     amount: "",
     description: "",
