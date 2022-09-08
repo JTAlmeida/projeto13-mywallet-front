@@ -18,10 +18,15 @@ import minus from "../../assets/minus.png";
 export default function History() {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
+  const [reload, setReload] = useState(false);
   const [hasTransaction, setHasTransaction] = useState(false);
   const [transactionHistory, setTransactionHistory] = useState([]);
 
   useEffect(() => {
+    if (user !== "") {
+      setUser(JSON.parse(localStorage.getItem("mywallet")));
+    }
+
     const promise = getTransactions();
 
     promise.catch((res) => {
@@ -40,7 +45,6 @@ export default function History() {
   }, []);
 
   const getBalance = () => {
-    console.log(transactionHistory);
     let result = 0;
     transactionHistory.map((transaction) => {
       if (transaction.type === "income") {
@@ -74,7 +78,6 @@ export default function History() {
           <HistoryWrapper>
             <ul>
               {transactionHistory.map((transaction, index) => {
-                console.log(transaction.amount);
                 return (
                   <li key={index}>
                     <TransactionDiv type={transaction.type}>

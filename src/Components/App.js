@@ -12,7 +12,6 @@ import UserContext from "../contexts/UserContext";
 export default function App() {
   const [user, setUser] = useState("");
 
-  
   const auth = JSON.parse(localStorage.getItem("mywallet"));
 
   if (auth && user === "") {
@@ -31,7 +30,7 @@ export default function App() {
               path="/history"
               element={
                 <PrivatePage>
-                <History />
+                  <History />
                 </PrivatePage>
               }
             ></Route>
