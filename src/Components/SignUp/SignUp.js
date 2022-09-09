@@ -40,7 +40,7 @@ export default function SignUp() {
     }
 
     setIsLoading(true);
-    console.log(form);
+
     const promise = signUp(form);
     promise
       .catch((res) => {
