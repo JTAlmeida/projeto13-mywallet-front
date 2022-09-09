@@ -66,6 +66,12 @@ export default function History() {
             src={leaveIcon}
             alt="leave"
             onClick={() => {
+              let confirmation = window.confirm(
+                "Tem certeza que deseja fazer logoff?"
+              );
+              if (!confirmation) {
+                return;
+              }
               localStorage.clear("mywallet");
               setUser("");
               navigate("/");

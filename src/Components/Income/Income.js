@@ -93,7 +93,6 @@ export default function Income() {
               placeholder="Valor"
               name="amount"
               type="number"
-              min="0.01"
               value={form.amount}
               onChange={handleForm}
               onBlur={fixValue}
