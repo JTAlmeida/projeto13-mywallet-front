@@ -52,8 +52,9 @@ export default function History() {
         result -= Number(transaction.amount);
       }
     });
+    
     result = result.toFixed(2);
-    return result.replace(".", ",");
+    return result;
   };
   const balance = getBalance();
 
@@ -100,7 +101,7 @@ export default function History() {
             </ul>
             <BalanceStyle balance={balance}>
               <h2>SALDO</h2>
-              <h3>{balance}</h3>
+              <h3>{balance.replace(".", ",")}</h3>
             </BalanceStyle>
           </HistoryWrapper>
         ) : (
